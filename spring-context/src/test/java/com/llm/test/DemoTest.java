@@ -16,6 +16,9 @@ public class DemoTest {
 	@Test
 	public void testSpring(){
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(Appconfig.class);
-		context.getBean(Person.class);
+		Person person = context.getBean(Person.class);
+		person.setName("aaa");
+		context.registerShutdownHook();
+
 	}
 }
