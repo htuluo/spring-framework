@@ -1,4 +1,4 @@
-package com.llm.framework;
+package com.llm.framework.processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -21,13 +21,13 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("【BeanPostProcessor】postProcessBeforeInitialization is called");
+		System.out.println("【MyBeanPostProcessor】postProcessBeforeInitialization is called beanName="+beanName);
 		return null;
 	}
 
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("【BeanPostProcessor】postProcessAfterInitialization is called");
+		System.out.println("【MyBeanPostProcessor】postProcessAfterInitialization is called beanName="+beanName);
 		return null;
 	}
 

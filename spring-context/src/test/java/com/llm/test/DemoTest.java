@@ -1,7 +1,8 @@
 package com.llm.test;
 
-import com.llm.framework.Person;
+import com.llm.framework.entity.Person;
 import com.llm.framework.config.Appconfig;
+import com.llm.framework.entity.User;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -16,8 +17,9 @@ public class DemoTest {
 	@Test
 	public void testSpring(){
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(Appconfig.class);
-		Person person = context.getBean(Person.class);
-		person.setName("aaa");
+		Appconfig appconfig = context.getBean(Appconfig.class);
+//		User user = context.getBean(User.class);
+//		person.setName("aaa");
 		context.registerShutdownHook();
 
 	}

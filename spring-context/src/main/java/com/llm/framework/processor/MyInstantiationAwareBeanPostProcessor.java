@@ -1,4 +1,4 @@
-package com.llm.framework;
+package com.llm.framework.processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
@@ -21,19 +21,19 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
 
 	@Override
 	public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
-		System.out.println("【InstantiationAwareBeanPostProcessor】postProcessBeforeInstantiation");
+		System.out.println("【MyInstantiationAwareBeanPostProcessor】postProcessBeforeInstantiation beanName="+beanName);
 		return null;
 	}
 
 	@Override
 	public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-		System.out.println("【InstantiationAwareBeanPostProcessor】postProcessAfterInstantiation");
+		System.out.println("【MyInstantiationAwareBeanPostProcessor】postProcessAfterInstantiation beanName="+beanName);
 		return false;
 	}
 
 	@Override
 	public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
-		System.out.println("【InstantiationAwareBeanPostProcessor】postProcessProperties");
+		System.out.println("【MyInstantiationAwareBeanPostProcessor】postProcessProperties beanName="+beanName);
 		return null;
 	}
 }

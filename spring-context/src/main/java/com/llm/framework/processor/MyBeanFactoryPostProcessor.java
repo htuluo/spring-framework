@@ -1,4 +1,4 @@
-package com.llm.framework;
+package com.llm.framework.processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;

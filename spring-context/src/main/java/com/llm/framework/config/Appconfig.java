@@ -14,4 +14,7 @@ import org.springframework.stereotype.Component;
 @Configuration
 @ComponentScan(basePackages = "com.llm.framework")
 public class Appconfig {
+	public Appconfig() {
+		System.out.println("【Appconfig】初始化");
+	}
 }

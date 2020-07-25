@@ -1,11 +1,13 @@
-package com.llm.framework;
+package com.llm.framework.entity;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import javax.ejb.Init;
@@ -18,11 +20,11 @@ import javax.ejb.Init;
  * @history: (版本) 作者 时间 注释
  */
 @Component
-public class Person implements BeanNameAware , BeanFactoryPostProcessor, BeanFactoryAware ,InitializingBean,DisposableBean{
+public class Person implements BeanNameAware, BeanFactoryAware, BeanFactoryPostProcessor,InitializingBean, DisposableBean {
 
 	public Person() {
-		System.out.println("Person inited");
-		setName("bbb");
+		System.out.println("【Person】 inited");
+//		setName("bbb");
 	}
 
 //	@Bean(initMethod = "myinit")
@@ -31,11 +33,13 @@ public class Person implements BeanNameAware , BeanFactoryPostProcessor, BeanFac
 //		return new Person();
 //	}
 
-	public void myinit(){
+	public void myinit() {
 		System.out.println("【myinit】初始化");
 	}
 
+	@Value("kkk")
 	private String name;
+
 	private BeanFactory beanFactory;
 
 	public String getName() {
@@ -49,7 +53,7 @@ public class Person implements BeanNameAware , BeanFactoryPostProcessor, BeanFac
 
 	@Override
 	public void setBeanName(String name) {
-		System.out.println("【BeanNameAware】setBeanName is called,name="+name);
+		System.out.println("【BeanNameAware】setBeanName is called,name=" + name);
 
 
 	}
@@ -74,7 +78,7 @@ public class Person implements BeanNameAware , BeanFactoryPostProcessor, BeanFac
 
 	@Override
 	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-		this.beanFactory=beanFactory;
+		this.beanFactory = beanFactory;
 		System.out.println("【BeanFactoryAware】setBeanFactory is called");
 
 	}
